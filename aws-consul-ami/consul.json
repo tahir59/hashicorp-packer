@@ -69,7 +69,7 @@
     "inline": ["mkdir -p /tmp/terraform-aws-consul/modules"]
   },{
     "type": "file",
-    "source": "{{template_dir}}/../../modules/",
+    "source": "{{template_dir}}/modules/",
     "destination": "/tmp/terraform-aws-consul/modules",
     "pause_before": "30s"
   },{
