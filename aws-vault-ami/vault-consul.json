@@ -1,16 +1,16 @@
 {
   "min_packer_version": "0.12.0",
   "variables": {
-    "aws_region": "",
+    "aws_region": "ap-northeast-2",
     "vault_version": "1.1.0",
     "consul_module_version": "v0.7.3",
     "consul_version": "1.5.3",
     "consul_download_url": "{{env `CONSUL_DOWNLOAD_URL`}}",
     "vault_download_url": "{{env `VAULT_DOWNLOAD_URL`}}",
     "install_auth_signing_script": "true",
-    "ca_public_key_path": "/root/terraform/aws/vault/private-tls-cert/ca.crt.pem",
-    "tls_public_key_path": "/root/terraform/aws/vault/private-tls-cert/vault.crt.pem",
-    "tls_private_key_path": "/root/terraform/aws/vault/private-tls-cert/vault.key.pem"
+    "ca_public_key_path": "/root/hashicorp-packer/aws-vault-ami/private-tls-cert/ca.crt.pem",
+    "tls_public_key_path": "/root/hashicorp-packer/aws-vault-ami/private-tls-cert/vault.crt.pem",
+    "tls_private_key_path": "/root/hashicorp-packer/aws-vault-ami/private-tls-cert/vault.key.pem"
   },
   "builders": [{
     "ami_name": "vault-consul-ubuntu18-{{isotime | clean_ami_name}}-{{uuid}}",
@@ -75,7 +75,7 @@
     "inline": ["mkdir -p /tmp/terraform-aws-vault/modules"]
   },{
     "type": "file",
-    "source": "{{template_dir}}/../../modules/",
+    "source": "{{template_dir}}/modules/",
     "destination": "/tmp/terraform-aws-vault/modules",
     "pause_before": "30s"
   },{

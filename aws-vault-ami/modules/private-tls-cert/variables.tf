@@ -4,62 +4,44 @@
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "ca_public_key_file_path" {
-  type    = string
-  default = "/root/hashicorp-packer/aws-vault-ami/private-tls-cert/ca.crt.pem"
   description = "Write the PEM-encoded CA certificate public key to this path (e.g. /etc/tls/ca.crt.pem)."
 }
 
 variable "public_key_file_path" {
-  type    = string
-  default = "/root/hashicorp-packer/aws-vault-ami/private-tls-cert/vault.crt.pem"
   description = "Write the PEM-encoded certificate public key to this path (e.g. /etc/tls/vault.crt.pem)."
 }
 
 variable "private_key_file_path" {
-  type    = string
-  default = "/root/hashicorp-packer/aws-vault-ami/private-tls-cert/vault.key.pem"
   description = "Write the PEM-encoded certificate private key to this path (e.g. /etc/tls/vault.key.pem)."
 }
 
 variable "owner" {
-  type    = string
-  default = "root"
   description = "The OS user who should be given ownership over the certificate files."
 }
 
 variable "organization_name" {
-  type    = string
-  default = "Organization"
   description = "The name of the organization to associate with the certificates (e.g. Acme Co)."
 }
 
 variable "ca_common_name" {
-  type    = string
-  default = "cert"
   description = "The common name to use in the subject of the CA certificate (e.g. acme.co cert)."
 }
 
 variable "common_name" {
-  type    = string
-  default = "cert"
   description = "The common name to use in the subject of the certificate (e.g. acme.co cert)."
 }
 
 variable "dns_names" {
-  type        = list(string)
-  default = ["vault.service.consul"]
   description = "List of DNS names for which the certificate will be valid (e.g. vault.service.consul, foo.example.com)."
+  type        = list(string)
 }
 
 variable "ip_addresses" {
-  type        = list(string)
-  default = ["127.0.0.1"]
   description = "List of IP addresses for which the certificate will be valid (e.g. 127.0.0.1)."
+  type        = list(string)
 }
 
 variable "validity_period_hours" {
-  type    = string
-  default = 3600
   description = "The number of hours after initial issuing that the certificate will become invalid."
 }
 
